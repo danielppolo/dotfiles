@@ -5,8 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # Useful plugins for Rails development with Sublime Text
-# https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
-plugins=(gitfast last-working-dir common-aliases sublime zsh-syntax-highlighting history-substring-search git git-flow github emoji yarn npm wd)
+plugins=(gitfast last-working-dir common-aliases sublime zsh-syntax-highlighting history-substring-search vscode git-flow ruby rails git github emoji yarn npm wd))
 
 # Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
