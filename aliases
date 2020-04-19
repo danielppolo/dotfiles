@@ -5,3 +5,13 @@ alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/download
 
 # Quickly serve the current directory as HTTP
 alias serve='ruby -run -e httpd . -p 8000'  # Or python -m SimpleHTTPServer :)
+
+# Personal alisases
+alias component='source ~/.alias/create-component.sh'
+alias init='source ~/.alias/go-to-code.sh'
+
+# Command to initalize the DB.
+# alias pgstart='sudo service postgresql start && pg_lsclusters'
+alias vsc='code . --disable-gpu'
+alias explore='explorer.exe .'
+alias pgstart='sudo pg_ctlcluster 11 main start'
