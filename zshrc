@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # Useful plugins for Rails development with Sublime Text
-plugins=(gitfast last-working-dir common-aliases sublime zsh-syntax-highlighting history-substring-search vscode git-flow ruby rails git github emoji yarn npm wd))
+plugins=(gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search git-flow ruby git github emoji yarn npm wd z zsh-autosuggestions vscode)
 
 # Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
@@ -29,8 +29,6 @@ export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
 # Encoding stuff for the terminal
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
-export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
 
 NPM_PACKAGES="${HOME}/.npm-packages"
 
@@ -43,8 +41,6 @@ export PATH="$NPM_PACKAGES/bin:$PATH"
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
-
-plugins=(git ruby git-flow github wd last-working-dir git-fast common-aliases sublime vscode sudo yarn npm)
 
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -71,4 +67,22 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
-export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exeexport BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
+
+# Default browser in WSL2
+export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
+
+# Default editor
+export BUNDLER_EDITOR="code $@ >/dev/null 2>&1 -a"
+
+# Variables fron pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+
+# Automatically start `dbus`
+sudo /etc/init.d/dbus start &> /dev/null
+
