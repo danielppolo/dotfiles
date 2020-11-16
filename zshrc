@@ -86,3 +86,4 @@ export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}
 # Automatically start `dbus`
 sudo /etc/init.d/dbus start &> /dev/null
 
+export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -a"
