@@ -69,7 +69,7 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
 # Default browser in WSL2
-export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
+# export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
 
 # Default editor
 export BUNDLER_EDITOR="code $@ >/dev/null 2>&1 -a"
@@ -81,9 +81,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+# export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 
 # Automatically start `dbus`
-sudo /etc/init.d/dbus start &> /dev/null
-
-export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -a"
+# sudo /etc/init.d/dbus start &> /dev/null
